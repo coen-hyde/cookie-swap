@@ -3,7 +3,7 @@ var _ = require('lodash')
 
 module.exports = function(options) {
   var options = _.defaults(options, { 
-    key: 'pb.client', 
+    key: 'maxwell.sess', 
     transfer: [], 
     cookie: { 
       path: '/', 

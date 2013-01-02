@@ -7,6 +7,7 @@ var should = require('should')
 
 var host = '127.0.0.1'
   , port = 8099
+  , sesskey = 'maxwell.sess';
 
 var mkurl = function(path) {
   path = path || '/'
@@ -26,11 +27,11 @@ var parseJSONCookie = function(str) {
 
 var retrieveSessions = function(res) {
   var cookies = cookie.parse(res.headers['set-cookie'].toString());
-  return _.pick(cookies, ['pb.client', 'connect.sess']);
+  return _.pick(cookies, [sesskey, 'connect.sess']);
 };
 
 var parsedClientSession = function(res) {
-  return parseJSONCookie(retrieveSessions(res)['pb.client']);
+  return parseJSONCookie(retrieveSessions(res)[sesskey]);
 };
 
 var serializeClientSession = function(session) {
@@ -118,9 +119,9 @@ describe("Popbasic's client session manager", function(){
 
       var sessions = retrieveSessions(res);
       // Update a client session cookie to ensure server accepts the new value
-      sessions['pb.client'] = serializeClientSession(
+      sessions[sesskey] = serializeClientSession(
         _.extend(
-          parseJSONCookie(sessions['pb.client']), 
+          parseJSONCookie(sessions[sesskey]), 
           {count: 6}
         )
       );
