@@ -67,11 +67,17 @@ app = express();
 app.use(express.cookieParser());
 
 app.use(express.cookieSession({
-  secret: 'mysecretkey'
+  secret: 'mysecretkey',
+  cookie: {
+    maxAge: 1000*60+60*24
+  }
 }));
 
 app.use(clientSessions({
-  transfer: ['ziggy']
+  transfer: ['ziggy'],
+  cookie: {
+    maxAge: 1000*60+60*24
+  }
 }));
 
 app.get('/test/1', function(req, res) {
