@@ -17,7 +17,7 @@ Usage
 
 ``` js
 var express = require('express')
-  , clientSessions = require('pb-client-sessions');
+  , clientSessions = require('cookie-swap');
 
 var app = express();
 
