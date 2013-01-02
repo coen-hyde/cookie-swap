@@ -10,7 +10,7 @@ If you have some session state that should be accessable on the client but you d
 Install
 -------
 
-   $ npm install cookie-swap
+    $ npm install cookie-swap
 
 Usage
 -----
