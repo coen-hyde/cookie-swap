@@ -16,8 +16,15 @@ module.exports = function(options) {
     req.clientSession = req.cookies[options.key] || {};
 
     res.on('header', function() {
-      var clientSession = _.merge(req.clientSession, _.pick(req.session, options.transfer));
+      // Transferable session properties taht will be copied to the client session
+      var transerable = _.pick(req.session, options.transfer)
+      
+      // Transferable session properties that do not exist in the session and thus should be deleted in the client session
+      var deleteProps = _.difference(options.transfer, _.keys(transerable));
 
+      // The client session after processing
+      var clientSession = _.omit(_.merge(req.clientSession, transerable), deleteProps);
+      
       res.cookie(options.key, clientSession, options.cookie);
     });
 
