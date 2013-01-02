@@ -1,12 +1,19 @@
 {
-  "private": true,
-  "name": "pb-client-sessions",
-  "description": "Manager of popbasic's client sessions",
+  "name": "cookie-swap",
+  "description": "Client Session Manager",
+  "main": "./index.js",
+  "author": {
+    "name": "Coen Hyde",
+    "url": "http://coenhyde.com/"
+  },
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/coen-hyde/cookie-swap.git"
+  },
   "scripts": {
-    "start": "server.js",
     "test": "make test"
   },
-  "version": "0.0.1",
   "dependencies": {
     "lodash": "~1.0.0-rc.3"
   },
@@ -16,5 +23,8 @@
     "cookie": "0.0.5",
     "express": "~3.0.5",
     "should": "~1.2.1"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
   }
 }
