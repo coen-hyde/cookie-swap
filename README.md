@@ -47,3 +47,8 @@ Options
 * `key` cookie name defaulting to maxwell.sess
 * `transfer` an array of properties that should be transfered from req.session into the client session so they are accessable on the client. Transferable properties from req.session will override values in req.clientSession. Any transferable properties deleted from req.session will also be deleted from req.clientSession.
 * `cookie` session cookie settings, defaulting to `{ path: '/', httpOnly: false, maxAge: null }`
+
+License
+-------
+
+  MIT
