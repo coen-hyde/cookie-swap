@@ -7,6 +7,8 @@ The client session is avaliable at `req.clientSession`, similar to `req.session`
 
 If you have some session state that should be accessable on the client but you do not want to accept any modification of the information when in comes back to the server, you can store it in `req.session` and add its property name to the option `transfer`. This will copy the property from req.session into req.clientSession.
 
+![npm tag](https://nodei.co/npm/cookie-swap.png)
+
 Install
 -------
 
