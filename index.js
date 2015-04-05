@@ -1,5 +1,6 @@
-var _ = require('lodash')
-  , cookie = require('cookie');
+var _ = require('lodash');
+var cookie = require('cookie');
+var onHeaders = require('on-headers');
 
 module.exports = function(options) {
   var options = _.defaults(options, { 
@@ -15,7 +16,7 @@ module.exports = function(options) {
   return function(req, res, next) {
     req.clientSession = req.cookies[options.key] || {};
 
-    res.on('header', function() {
+    onHeaders(res, function() {
       // Transferable session properties taht will be copied to the client session
       var transerable = _.pick(req.session, options.transfer)
       

@@ -15,7 +15,8 @@
     "test": "make test"
   },
   "dependencies": {
-    "lodash": "~2.2.0"
+    "lodash": "~2.2.0",
+    "on-headers": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "~1.7.4",
